@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GigiShoes - Sepatu Berkualitas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.3);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            transform: translateY(-2px);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .running-text {
+            animation: scroll-left 20s linear infinite;
+        }
+        
+        @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-navy-900 shadow-lg sticky top-0 z-50" style="background-color: #1e293b;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-white">
+                        👟 <span class="text-blue-400">Gigi</span>Shoes
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="text-white hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Beranda</a>
+                        <a href="#products" class="text-white hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Produk</a>
+                        <a href="#order" class="text-white hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pesan</a>
+                        <a href="#cart" class="text-white hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors relative">
+                            Keranjang
+                            <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                        </a>
+                        <a href="#contact" class="text-white hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Kontak</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-blue-400 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-800">
+                <a href="#home" class="text-white hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium">Beranda</a>
+                <a href="#products" class="text-white hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium">Produk</a>
+                <a href="#order" class="text-white hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium">Pesan</a>
+                <a href="#cart" class="text-white hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium">Keranjang</a>
+                <a href="#contact" class="text-white hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Running Text Promotion -->
+    <div class="bg-red-600 text-white py-2 overflow-hidden">
+        <div class="running-text whitespace-nowrap">
+            <span class="inline-block px-8">🔥 PROMO SPESIAL! Diskon hingga 30% untuk semua produk sepatu! 👟</span>
+            <span class="inline-block px-8">✨ Gratis ongkir untuk pembelian di atas Rp 500.000! 🚚</span>
+            <span class="inline-block px-8">🎉 Koleksi terbaru sudah tersedia! Dapatkan sekarang juga! 💫</span>
+            <span class="inline-block px-8">📞 Hubungi kami di WhatsApp untuk konsultasi gratis! 💬</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    Selamat Datang di <span class="text-blue-300">GigiShoes</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-blue-100">
+                    Koleksi sepatu berkualitas tinggi untuk gaya hidup Anda
+                </p>
+                <button onclick="scrollToSection('products')" class="btn-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg">
+                    Lihat Koleksi
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 slide-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Koleksi Sepatu Kami</h2>
+                <p class="text-lg text-gray-600">Pilihan terbaik untuk setiap kesempatan</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-64 bg-gray-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Sneakers Sport" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                             onerror="this.src=''; this.alt='Gambar tidak dapat dimuat'; this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-6xl\'>👟</div>';">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Sneakers Sport</h3>
+                        <p class="text-gray-600 mb-4">Sepatu olahraga dengan teknologi terdepan untuk kenyamanan maksimal</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">Rp 450.000</span>
+                            <button onclick="addToCart('Sneakers Sport', 450000, '👟')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-64 bg-gray-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Sepatu Formal" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                             onerror="this.src=''; this.alt='Gambar tidak dapat dimuat'; this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-6xl\'>👞</div>';">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Sepatu Formal</h3>
+                        <p class="text-gray-600 mb-4">Sepatu formal elegan untuk acara resmi dan kantor</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">Rp 650.000</span>
+                            <button onclick="addToCart('Sepatu Formal', 650000, '👞')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-64 bg-gray-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1520639888713-7851133b1ed0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Boots Adventure" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                             onerror="this.src=''; this.alt='Gambar tidak dapat dimuat'; this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-6xl\'>🥾</div>';">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Boots Adventure</h3>
+                        <p class="text-gray-600 mb-4">Sepatu boots tahan lama untuk petualangan outdoor</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">Rp 750.000</span>
+                            <button onclick="addToCart('Boots Adventure', 750000, '🥾')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-64 bg-gray-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="High Heels" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                             onerror="this.src=''; this.alt='Gambar tidak dapat dimuat'; this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-6xl\'>👠</div>';">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">High Heels</h3>
+                        <p class="text-gray-600 mb-4">Sepatu hak tinggi untuk tampilan yang memukau</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">Rp 550.000</span>
+                            <button onclick="addToCart('High Heels', 550000, '👠')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Product 6 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-64 bg-gray-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Running Shoes" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                             onerror="this.src=''; this.alt='Gambar tidak dapat dimuat'; this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-6xl\'>👟</div>';">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Running Shoes</h3>
+                        <p class="text-gray-600 mb-4">Sepatu lari dengan bantalan empuk dan ringan</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">Rp 500.000</span>
+                            <button onclick="addToCart('Running Shoes', 500000, '👟')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Keranjang Belanja</h2>
+                <p class="text-lg text-gray-600">Kelola pesanan Anda sebelum checkout</p>
+            </div>
+
+            <!-- Empty Cart Message -->
+            <div id="empty-cart" class="text-center py-12">
+                <div class="text-6xl mb-4">🛒</div>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">Keranjang Anda Kosong</h3>
+                <p class="text-gray-500 mb-6">Silakan tambahkan produk ke keranjang terlebih dahulu</p>
+                <button onclick="scrollToSection('products')" class="btn-primary text-white px-6 py-3 rounded-lg font-semibold">
+                    Lihat Produk
+                </button>
+            </div>
+
+            <!-- Cart Items -->
+            <div id="cart-items" class="hidden">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="px-6 py-4 bg-gray-50 border-b">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">Item dalam Keranjang</h3>
+                            <button onclick="clearCart()" class="text-red-600 hover:text-red-800 text-sm font-medium">
+                                Kosongkan Keranjang
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="cart-list" class="divide-y divide-gray-200">
+                        <!-- Cart items will be inserted here -->
+                    </div>
+                    
+                    <div class="px-6 py-4 bg-gray-50 border-t">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-semibold text-gray-900">Total:</span>
+                            <span id="cart-total" class="text-2xl font-bold text-blue-600">Rp 0</span>
+                        </div>
+                        <button onclick="proceedToCheckout()" class="w-full btn-primary text-white py-3 rounded-lg font-semibold text-lg">
+                            Lanjut ke Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section id="order" class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Form Pemesanan</h2>
+                <p class="text-lg text-gray-600">Lengkapi data di bawah untuk melakukan pemesanan</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <form id="orderForm" class="space-y-6">
+                    <!-- Selected Product Display -->
+                    <div id="selectedProduct" class="hidden bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">Produk Terpilih:</h3>
+                        <div class="flex justify-between items-center">
+                            <span id="selectedProductName" class="text-blue-700 font-medium"></span>
+                            <span id="selectedProductPrice" class="text-blue-800 font-bold text-xl"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Personal Information -->
+                        <div>
+                            <label for="fullName" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap *</label>
+                            <input type="text" id="fullName" name="fullName" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Nomor Telepon *</label>
+                            <input type="tel" id="phone" name="phone" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                        </div>
+
+                        <div>
+                            <label for="size" class="block text-sm font-medium text-gray-700 mb-2">Ukuran Sepatu *</label>
+                            <select id="size" name="size" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                <option value="">Pilih Ukuran</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="quantity" class="block text-sm font-medium text-gray-700 mb-2">Jumlah *</label>
+                            <input type="number" id="quantity" name="quantity" min="1" value="1" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                        </div>
+
+                        <div>
+                            <label for="color" class="block text-sm font-medium text-gray-700 mb-2">Warna Pilihan</label>
+                            <select id="color" name="color" 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                <option value="">Pilih Warna</option>
+                                <option value="Hitam">Hitam</option>
+                                <option value="Putih">Putih</option>
+                                <option value="Coklat">Coklat</option>
+                                <option value="Biru">Biru</option>
+                                <option value="Merah">Merah</option>
+                                <option value="Abu-abu">Abu-abu</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+                    <div>
+                        <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Alamat Lengkap *</label>
+                        <textarea id="address" name="address" rows="3" required 
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                  placeholder="Masukkan alamat lengkap untuk pengiriman"></textarea>
+                    </div>
+
+                    <!-- Notes -->
+                    <div>
+                        <label for="notes" class="block text-sm font-medium text-gray-700 mb-2">Catatan Tambahan</label>
+                        <textarea id="notes" name="notes" rows="2" 
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                  placeholder="Catatan khusus untuk pesanan Anda (opsional)"></textarea>
+                    </div>
+
+                    <!-- Total Price Display -->
+                    <div id="totalPrice" class="hidden bg-green-50 border border-green-200 rounded-lg p-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-medium text-green-800">Total Harga:</span>
+                            <span id="totalAmount" class="text-2xl font-bold text-green-800"></span>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg w-full md:w-auto">
+                            🛒 Kirim Pesanan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-slate-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Hubungi Kami</h2>
+                <p class="text-lg text-gray-300">Kami siap membantu Anda</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-slate-700 rounded-lg p-6">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h3 class="text-xl font-semibold mb-2">WhatsApp</h3>
+                    <p class="text-gray-300">+62 812-3456-7890</p>
+                </div>
+                
+                <div class="bg-slate-700 rounded-lg p-6">
+                    <div class="text-4xl mb-4">📧</div>
+                    <h3 class="text-xl font-semibold mb-2">Email</h3>
+                    <p class="text-gray-300">info@gigishoes.com</p>
+                </div>
+                
+                <div class="bg-slate-700 rounded-lg p-6">
+                    <div class="text-4xl mb-4">📍</div>
+                    <h3 class="text-xl font-semibold mb-2">Alamat</h3>
+                    <p class="text-gray-300">Jl. Sepatu No. 123, Jakarta</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="text-2xl font-bold mb-4">
+                    👟 <span class="text-blue-400">Gigi</span>Shoes
+                </div>
+                <p class="text-gray-400 mb-4">Sepatu berkualitas untuk gaya hidup Anda</p>
+                <p class="text-gray-500 text-sm">© 2024 GigiShoes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Navigation links smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Cart system
+        let cart = [];
+        let selectedProductData = null;
+
+        function addToCart(name, price, emoji) {
+            // Check if product already exists in cart
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: Date.now(),
+                    name: name,
+                    price: price,
+                    emoji: emoji,
+                    quantity: 1
+                });
+            }
+            
+            updateCartDisplay();
+            updateCartBadge();
+            showNotification(`${name} ditambahkan ke keranjang!`, 'success');
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartDisplay();
+            updateCartBadge();
+            showNotification('Item dihapus dari keranjang', 'info');
+        }
+
+        function updateQuantity(id, change) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(id);
+                } else {
+                    updateCartDisplay();
+                    updateCartBadge();
+                }
+            }
+        }
+
+        function updateCartBadge() {
+            const badge = document.getElementById('cart-badge');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            if (totalItems > 0) {
+                badge.textContent = totalItems;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        function updateCartDisplay() {
+            const emptyCart = document.getElementById('empty-cart');
+            const cartItems = document.getElementById('cart-items');
+            const cartList = document.getElementById('cart-list');
+            const cartTotal = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                emptyCart.classList.remove('hidden');
+                cartItems.classList.add('hidden');
+                return;
+            }
+            
+            emptyCart.classList.add('hidden');
+            cartItems.classList.remove('hidden');
+            
+            // Clear current items
+            cartList.innerHTML = '';
+            
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'p-6 flex items-center justify-between';
+                cartItem.innerHTML = `
+                    <div class="flex items-center space-x-4">
+                        <div class="text-3xl">${item.emoji}</div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">${item.name}</h4>
+                            <p class="text-gray-600">Rp ${item.price.toLocaleString('id-ID')}</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <button onclick="updateQuantity(${item.id}, -1)" 
+                                    class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-gray-600 font-bold">
+                                -
+                            </button>
+                            <span class="w-8 text-center font-semibold">${item.quantity}</span>
+                            <button onclick="updateQuantity(${item.id}, 1)" 
+                                    class="w-8 h-8 rounded-full bg-blue-500 hover:bg-blue-600 flex items-center justify-center text-white font-bold">
+                                +
+                            </button>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-semibold text-gray-900">Rp ${itemTotal.toLocaleString('id-ID')}</div>
+                            <button onclick="removeFromCart(${item.id})" 
+                                    class="text-red-500 hover:text-red-700 text-sm">
+                                Hapus
+                            </button>
+                        </div>
+                    </div>
+                `;
+                cartList.appendChild(cartItem);
+            });
+            
+            cartTotal.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+        }
+
+        function clearCart() {
+            if (cart.length === 0) return;
+            
+            if (confirm('Apakah Anda yakin ingin mengosongkan keranjang?')) {
+                cart = [];
+                updateCartDisplay();
+                updateCartBadge();
+                showNotification('Keranjang telah dikosongkan', 'info');
+            }
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                showNotification('Keranjang kosong! Tambahkan produk terlebih dahulu.', 'error');
+                return;
+            }
+            
+            // Populate order form with cart data
+            populateOrderForm();
+            scrollToSection('order');
+            showNotification('Silakan lengkapi form pemesanan', 'info');
+        }
+
+        function populateOrderForm() {
+            const selectedProduct = document.getElementById('selectedProduct');
+            const selectedProductName = document.getElementById('selectedProductName');
+            const selectedProductPrice = document.getElementById('selectedProductPrice');
+            const totalPrice = document.getElementById('totalPrice');
+            const totalAmount = document.getElementById('totalAmount');
+            
+            // Show cart summary in order form
+            selectedProduct.classList.remove('hidden');
+            
+            if (cart.length === 1) {
+                selectedProductName.textContent = cart[0].name;
+                selectedProductPrice.textContent = `Rp ${(cart[0].price * cart[0].quantity).toLocaleString('id-ID')}`;
+            } else {
+                selectedProductName.textContent = `${cart.length} item dalam keranjang`;
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                selectedProductPrice.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+            }
+            
+            // Show total
+            totalPrice.classList.remove('hidden');
+            const grandTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            totalAmount.textContent = `Rp ${grandTotal.toLocaleString('id-ID')}`;
+            
+            // Set quantity to total items
+            document.getElementById('quantity').value = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        // Calculate total price
+        function calculateTotal() {
+            if (!selectedProductData) return;
+            
+            const quantity = parseInt(document.getElementById('quantity').value) || 1;
+            const total = selectedProductData.price * quantity;
+            
+            document.getElementById('totalPrice').classList.remove('hidden');
+            document.getElementById('totalAmount').textContent = `Rp ${total.toLocaleString('id-ID')}`;
+        }
+
+        // Quantity change listener
+        document.getElementById('quantity').addEventListener('input', calculateTotal);
+
+        // Form submission with Google Sheets integration
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (cart.length === 0) {
+                showNotification('Keranjang kosong! Tambahkan produk terlebih dahulu.', 'error');
+                scrollToSection('products');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '⏳ Mengirim Pesanan...';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Prepare cart items as string
+            const cartItemsText = cart.map(item => 
+                `${item.name} (${item.quantity}x) - Rp ${(item.price * item.quantity).toLocaleString('id-ID')}`
+            ).join(', ');
+            
+            const orderData = {
+                timestamp: new Date().toLocaleString('id-ID'),
+                fullName: formData.get('fullName'),
+                phone: formData.get('phone'),
+                email: formData.get('email') || '-',
+                cartItems: cartItemsText,
+                size: formData.get('size'),
+                quantity: formData.get('quantity'),
+                color: formData.get('color') || '-',
+                address: formData.get('address'),
+                notes: formData.get('notes') || '-',
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                status: 'Pesanan Baru'
+            };
+            
+            // Send to Google Sheets
+            // GANTI URL_APPS_SCRIPT_ANDA dengan URL deployment Google Apps Script Anda
+            const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxKoPc3hBUSVRHzM8ClQOSbm_uPGMcJcGUyshPjJ1YLhTIizcCGwR-kiF5e3aqM7Syi/exec';
+            
+            fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData)
+            })
+            .then(() => {
+                // Show success message
+                showNotification('Pesanan berhasil dikirim! Kami akan segera menghubungi Anda.', 'success');
+                
+                // Reset form and cart
+                this.reset();
+                document.getElementById('selectedProduct').classList.add('hidden');
+                document.getElementById('totalPrice').classList.add('hidden');
+                cart = [];
+                updateCartDisplay();
+                updateCartBadge();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('Terjadi kesalahan. Silakan coba lagi atau hubungi kami langsung.', 'error');
+            })
+            .finally(() => {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 px-6 py-4 rounded-lg shadow-lg text-white font-medium transform transition-all duration-300 translate-x-full`;
+            
+            if (type === 'success') {
+                notification.classList.add('bg-green-500');
+            } else if (type === 'error') {
+                notification.classList.add('bg-red-500');
+            } else {
+                notification.classList.add('bg-blue-500');
+            }
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries. forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.card-hover').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98550c66b06a6bd3',t:'MTc1ODkxMzY5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
